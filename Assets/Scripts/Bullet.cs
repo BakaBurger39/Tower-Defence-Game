@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 40f;
     public GameObject impactEffect;
+    public bool destroySelfActive;
 
     public void Seek (Transform _target)
     {
@@ -18,7 +19,11 @@ public class Bullet : MonoBehaviour
     {
         if (target == null)
         {
-            Destroy(gameObject);
+            if (destroySelfActive == true)
+            {
+                Destroy(gameObject);
+            }
+            //Destroy(gameObject);
             return;
         }
 
@@ -41,6 +46,11 @@ public class Bullet : MonoBehaviour
         Destroy(effectIns, 2f);
 
         Destroy(target.gameObject);
-        Destroy(gameObject);
+        
+        if (destroySelfActive == true)
+        {
+            Destroy(gameObject);
+        }
+        //Destroy(gameObject);
     }
 }
