@@ -125,6 +125,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -154,6 +156,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -169,7 +172,7 @@ GameObject:
   - component: {fileID: 7239373525047677949}
   - component: {fileID: 6869415242738677425}
   m_Layer: 0
-  m_Name: Lazer
+  m_Name: Laser Tower V3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +212,7 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 866210095764849796}
   turnSpeed: 10
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8788560232872245606, guid: d3ffbe9de069eb245a4f521fb84871ae, type: 3}
   firePoint: {fileID: 1464195175786832503}
 --- !u!1 &7967187713148994357
 GameObject:
@@ -272,6 +275,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -294,6 +299,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
