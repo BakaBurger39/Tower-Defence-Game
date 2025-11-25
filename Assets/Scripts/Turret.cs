@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using System.Collections;
 
 public class Turret : MonoBehaviour
 {
@@ -16,8 +17,12 @@ public class Turret : MonoBehaviour
     private float fireCountdown = 0f;
 
     [Header("Use Lazer")]
+
+    public int damageOverTime = 30;
+
     public bool useLazer = false;
     public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
 
     [Header("Unity Setup Fields")]
 
@@ -71,7 +76,11 @@ public class Turret : MonoBehaviour
             if (useLazer)
             {
                 if (lineRenderer.enabled)
+                {
                     lineRenderer.enabled = false;
+                    impactEffect.Stop();
+                }
+                    
             }
             return;
         }
@@ -110,11 +119,19 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
+        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
+
         if (!lineRenderer.enabled)
+        {
             lineRenderer.enabled = true;
+            impactEffect.Play();
+        }
+            
 
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, target.position);
+
+        impactEffect.transform.position = target.position;
     }
 
     void Shoot()
