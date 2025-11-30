@@ -8,12 +8,6 @@ public class GamePaused : MonoBehaviour
     public GameObject gamePausedUI;
     public GameObject pauseButton;
 
-    private bool gamePaused = false;
-
-    private void Start()
-    {
-        gamePaused = false;
-    }
 
     public void Retry()
     {
@@ -22,7 +16,7 @@ public class GamePaused : MonoBehaviour
 
     public void Menu()
     {
-
+        SceneManager.LoadScene(1);
     }
 
     public void Pause()
