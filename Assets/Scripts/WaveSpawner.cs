@@ -36,6 +36,7 @@ public class WaveSpawner : MonoBehaviour
         //if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) //Makes another wave of enemies spawn only when there is no enemies on screen
         {
             waveNumber++;
+            PlayerStats.Rounds++;
 
             for (int i = 0; i < waveNumber; i++)
             {

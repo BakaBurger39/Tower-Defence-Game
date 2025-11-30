@@ -13,6 +13,15 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
     public bool destroySelfActive;
 
+    private Enemy enemy;
+    private Turret turret;
+
+    void Start()
+    {
+        enemy = GetComponent<Enemy>();
+        turret = GetComponent<Turret>();
+    }
+
     public void Seek (Transform _target)
     {
         target = _target;
@@ -60,13 +69,19 @@ public class Bullet : MonoBehaviour
         {
             Damage(target);
         }
-
         
         if (destroySelfActive == true)
         {
             Destroy(gameObject);
         }
-        //Destroy(gameObject);
+        
+        if (enemy.slowTimer == 0f) //Timer for slowing enemies
+        {
+            if (turret.useSlow == true)
+            {
+                enemy.slowTimer = turret.timeSlowedFor;
+            }
+        }
     }
 
     void Explode()

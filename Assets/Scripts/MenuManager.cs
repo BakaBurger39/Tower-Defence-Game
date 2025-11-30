@@ -5,6 +5,13 @@ public class MenuManager : MonoBehaviour
 
     private bool gameEnded = false;
 
+    public GameObject gameOverUI;
+
+    private void Start()
+    {
+        Time.timeScale = 1; // Un-Freezes game at start
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,12 +22,16 @@ public class MenuManager : MonoBehaviour
         {
             EndGame();
         }
+
     }
 
     void EndGame()
     {
         gameEnded = true;
-        Debug.Log("Game over");
+        
+        gameOverUI.SetActive(true);
+
+        Time.timeScale = 0; // Freezes game after losing
 
     }
 

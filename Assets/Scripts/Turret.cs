@@ -6,6 +6,7 @@ public class Turret : MonoBehaviour
 {
 
     private Transform target;
+    private Enemy targetEnemy;
 
     [Header("General")]
 
@@ -23,6 +24,12 @@ public class Turret : MonoBehaviour
     public bool useLazer = false;
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
+
+    [Header("Use Slow")]
+    public bool useSlow = false;
+    public float slowPercentage = .5f;
+    public float timeSlowedFor;
+
 
     [Header("Unity Setup Fields")]
 
@@ -60,6 +67,7 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {
@@ -119,7 +127,12 @@ public class Turret : MonoBehaviour
 
     void Laser()
     {
-        target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+
+        if (useSlow)
+        {
+            targetEnemy.Slow(slowPercentage);
+        }
 
         if (!lineRenderer.enabled)
         {
@@ -141,6 +154,11 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Seek(target);
+
+        //if (useSlow)
+        //{
+            //targetEnemy.Slow(slowPercentage);
+        //}
     }
 
     private void OnDrawGizmosSelected()
