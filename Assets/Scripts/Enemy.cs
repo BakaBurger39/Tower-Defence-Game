@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     public int enemyValue = 25;
 
-    public bool isDead = false;
+    public bool isDead = false; // Needed this bool to prevent enemies from dieing multiple times when killed by multiple turrets at once
 
     public GameObject deathEffect;
 
