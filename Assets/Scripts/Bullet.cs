@@ -75,11 +75,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if (enemy.slowTimer == 0f) //Timer for slowing enemies
+        //if (enemy.slowTimer == 0f) //Timer for slowing enemies
         {
-            if (turret.useSlow == true)
+            //if (turret.useSlow == true)
             {
-                enemy.slowTimer = turret.timeSlowedFor;
+                //enemy.slowTimer = turret.timeSlowedFor;
             }
         }
     }
