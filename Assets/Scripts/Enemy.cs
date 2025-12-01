@@ -1,16 +1,23 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public float startSpeed = 10f;
     public float speed;
 
-    public float health = 100;
+    public float startHealth = 100;
+    public float health;
 
     public int enemyValue = 25;
 
+    public bool isDead = false;
+
     public GameObject deathEffect;
+
+    [Header("Unity Stuff")]
+    public Image healthBar;
 
     [Header("Slow timer")] // Will be used to set a time limit for how long enemies are slowed
     public float slowTimer = 0f;
@@ -27,6 +34,7 @@ public class Enemy : MonoBehaviour
         speed = startSpeed;
         target = Waypoints.points[0];
 
+        health = startHealth;
 
         turret = GetComponent<Turret>();
     }
@@ -35,10 +43,17 @@ public class Enemy : MonoBehaviour
     {
         health -= amount;
 
-        if (health <= 0)
+        healthBar.fillAmount = health / startHealth;
+
+        if (isDead == false)
         {
-            Die();
+            if (health <= 0)
+            {
+                isDead = true;
+                Die();
+            }
         }
+        
     }
 
     public void Slow (float percentage)
