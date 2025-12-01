@@ -106,6 +106,7 @@ public class Node : MonoBehaviour
 
         Destroy (turret);
         turretBlueprint = null;
+        isUpgraded = false;
     }
 
     void OnMouseEnter()
