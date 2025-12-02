@@ -393,8 +393,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -416,7 +414,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -456,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 18
   speed: 20
-  startHealth: 100
+  startHealth: 250
   health: 100
   enemyValue: 20
   enemyMaterial: {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}
@@ -465,3 +462,4 @@ MonoBehaviour:
   deathEffect: {fileID: 7960708562360108387, guid: dfb6606fa932a3e4b9eb0b2564116079, type: 3}
   healthBar: {fileID: 5655323570444030377}
   slowTimer: 0
+  isSlowed: 0

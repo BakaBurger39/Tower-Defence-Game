@@ -19,6 +19,8 @@ public class Turret : MonoBehaviour
 
     [Header("Use Lazer")]
 
+    public Material lazerMaterial;
+
     public int damageOverTime = 30;
 
     public bool useLazer = false;
@@ -40,7 +42,7 @@ public class Turret : MonoBehaviour
 
     public Transform firePoint;
 
-    
+    Enemy nearestEnemy = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,11 +52,11 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        
 
-        foreach (GameObject enemy in enemies)
+        foreach (Enemy enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance)
@@ -62,8 +64,41 @@ public class Turret : MonoBehaviour
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
-        }
+            if (enemy != nearestEnemy)
+            {
+                enemy.isSlowed = false;
+                Debug.Log("no longer slowed");
 
+            }
+
+        }
+        //if (targetEnemy != null)
+        //{
+        //    foreach (Enemy enemy in enemies)
+        //    {
+        //        if (enemy.name != targetEnemy.name)
+        //        {
+        //            enemy.isSlowed = false;
+        //            Debug.Log("no longer slowed");
+        //        }
+        //    }
+        //}
+        if (targetEnemy != null && shortestDistance > range)
+        {
+            targetEnemy = null;
+        }
+        if (targetEnemy == null)
+        {
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.isSlowed = false;
+                
+                
+            }
+        }
+        
+                
+        Debug.Log(targetEnemy == null);
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -71,7 +106,14 @@ public class Turret : MonoBehaviour
         }
         else
         {
+            if(targetEnemy != null)
+            {
+                targetEnemy.isSlowed = false;
+
+            }
             target = null;
+            
+
         }
 
     }
@@ -113,7 +155,6 @@ public class Turret : MonoBehaviour
 
         }
 
-
     }
 
     void LockOnTarget()
@@ -128,16 +169,22 @@ public class Turret : MonoBehaviour
     void Laser()
     {
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        //targetEnemy.isSlowed = true;
 
         if (useSlow == true)
         {
-            
+            targetEnemy.isSlowed = true;
             targetEnemy.Slow(slowPercentage);
-            GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+            //targetEnemy.GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+
+            //targetEnemy.
+            //GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+            lazerMaterial.color = new Color(0, 10, 10, 50);
         }
         else
         {
-            GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
+            //GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
+            lazerMaterial.color = new Color(35, 5, 5, 0);
         }
 
 

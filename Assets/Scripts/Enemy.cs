@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     [Header("Slow timer")] // Will be used to set a time limit for how long enemies are slowed
     public float slowTimer = 0f;
 
+    public bool isSlowed = false;
+
     private Transform target;
     private int wavepointIndex = 0;
 
@@ -64,6 +66,7 @@ public class Enemy : MonoBehaviour
         
         speed = startSpeed * (1f - percentage);
 
+        //Debug.Log($"speed{speed}");
         GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
    
     }
@@ -98,8 +101,18 @@ public class Enemy : MonoBehaviour
             GetNextWaypoint();
         }
         
-        speed = startSpeed;
-        GetComponent<Renderer>().material.color = enemyColor;
+        //speed = startSpeed;
+        if (isSlowed == false)
+        {
+            //GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
+            speed = startSpeed;
+            GetComponent<Renderer>().material.color = enemyColor;
+        }
+        else
+        {
+            GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+        }
+        //GetComponent<Renderer>().material.color = enemyColor;
     }
 
     void GetNextWaypoint()

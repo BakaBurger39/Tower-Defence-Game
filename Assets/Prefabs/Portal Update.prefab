@@ -52,6 +52,7 @@ MonoBehaviour:
   range: 20
   bulletPrefab: {fileID: 4905116713692790602, guid: a96c3d102124edc489cb1044540511d4, type: 3}
   fireRate: 0.5
+  lazerMaterial: {fileID: 0}
   damageOverTime: 10
   useLazer: 0
   lineRenderer: {fileID: 6222627819339831153}
@@ -184,6 +185,7 @@ MonoBehaviour:
   range: 20
   bulletPrefab: {fileID: 4905116713692790602, guid: b33d61565f782cf458fea1e356a84223, type: 3}
   fireRate: 0.85
+  lazerMaterial: {fileID: 2100000, guid: 1bdc6a4e121bc3d48bd1389833ceb88c, type: 2}
   damageOverTime: 10
   useLazer: 1
   lineRenderer: {fileID: 6222627819339831153}
