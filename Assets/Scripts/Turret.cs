@@ -28,7 +28,7 @@ public class Turret : MonoBehaviour
     [Header("Use Slow")]
     public bool useSlow = false;
     public float slowPercentage = .5f;
-    public float timeSlowedFor;
+    //public float timeSlowedFor;
 
 
     [Header("Unity Setup Fields")]
@@ -129,10 +129,17 @@ public class Turret : MonoBehaviour
     {
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
 
-        if (useSlow)
+        if (useSlow == true)
         {
+            
             targetEnemy.Slow(slowPercentage);
+            GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
         }
+        else
+        {
+            GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
+        }
+
 
         if (!lineRenderer.enabled)
         {

@@ -288,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 9.51
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14915,7 +14915,6 @@ MonoBehaviour:
   impactEffect: {fileID: 3588651544229812255}
   useSlow: 0
   slowPercentage: 0.5
-  timeSlowedFor: 0
   enemyTag: Enemy
   partToRotate: {fileID: 3788365113168746684}
   turnSpeed: 10

@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
 
     public int enemyValue = 25;
 
+    public Material enemyMaterial;
+    public Color enemyColor;
+
     public bool isDead = false; // Needed this bool to prevent enemies from dieing multiple times when killed by multiple turrets at once
 
     public GameObject deathEffect;
@@ -58,8 +61,11 @@ public class Enemy : MonoBehaviour
 
     public void Slow (float percentage)
     {
+        
         speed = startSpeed * (1f - percentage);
-        slowTimer = turret.timeSlowedFor;
+
+        GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+   
     }
 
     void Die()
@@ -75,10 +81,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        if (slowTimer >= 0f)
+        //if (slowTimer >= 0f)
         {
-            speed = startSpeed;
+           // speed = startSpeed;
         }
+        
+
+        //speed = startSpeed;
+        //GetComponent<Renderer>().material.color = enemyColor;
 
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime);
@@ -88,6 +98,8 @@ public class Enemy : MonoBehaviour
             GetNextWaypoint();
         }
         
+        speed = startSpeed;
+        GetComponent<Renderer>().material.color = enemyColor;
     }
 
     void GetNextWaypoint()

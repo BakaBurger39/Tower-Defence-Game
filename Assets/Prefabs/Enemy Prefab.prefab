@@ -456,8 +456,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 18
   speed: 20
+  startHealth: 200
   health: 100
   enemyValue: 20
+  enemyMaterial: {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}
+  enemyColor: {r: 0.08235294, g: 0.16470589, b: 0.9254902, a: 0}
+  isDead: 0
   deathEffect: {fileID: 7960708562360108387, guid: dfb6606fa932a3e4b9eb0b2564116079, type: 3}
   healthBar: {fileID: 5655323570444030377}
   slowTimer: 0
