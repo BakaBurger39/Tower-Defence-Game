@@ -30,7 +30,6 @@ public class Turret : MonoBehaviour
     [Header("Use Slow")]
     public bool useSlow = false;
     public float slowPercentage = .5f;
-    //public float timeSlowedFor;
 
 
     [Header("Unity Setup Fields")]
@@ -72,17 +71,6 @@ public class Turret : MonoBehaviour
             }
 
         }
-        //if (targetEnemy != null)
-        //{
-        //    foreach (Enemy enemy in enemies)
-        //    {
-        //        if (enemy.name != targetEnemy.name)
-        //        {
-        //            enemy.isSlowed = false;
-        //            Debug.Log("no longer slowed");
-        //        }
-        //    }
-        //}
         if (targetEnemy != null && shortestDistance > range)
         {
             targetEnemy = null;
@@ -169,21 +157,16 @@ public class Turret : MonoBehaviour
     void Laser()
     {
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-        //targetEnemy.isSlowed = true;
 
         if (useSlow == true)
         {
             targetEnemy.isSlowed = true;
             targetEnemy.Slow(slowPercentage);
-            //targetEnemy.GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
-
-            //targetEnemy.
-            //GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
+            
             lazerMaterial.color = new Color(0, 10, 10, 50);
         }
         else
         {
-            //GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
             lazerMaterial.color = new Color(35, 5, 5, 0);
         }
 
@@ -208,11 +191,6 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Seek(target);
-
-        //if (useSlow)
-        //{
-            //targetEnemy.Slow(slowPercentage);
-        //}
     }
 
     private void OnDrawGizmosSelected()

@@ -66,7 +66,6 @@ public class Enemy : MonoBehaviour
         
         speed = startSpeed * (1f - percentage);
 
-        //Debug.Log($"speed{speed}");
         GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
    
     }
@@ -84,14 +83,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        //if (slowTimer >= 0f)
-        {
-           // speed = startSpeed;
-        }
-        
-
-        //speed = startSpeed;
-        //GetComponent<Renderer>().material.color = enemyColor;
 
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime);
@@ -101,10 +92,8 @@ public class Enemy : MonoBehaviour
             GetNextWaypoint();
         }
         
-        //speed = startSpeed;
         if (isSlowed == false)
         {
-            //GetComponent<Renderer>().material.color = new Color(35, 5, 5, 0);
             speed = startSpeed;
             GetComponent<Renderer>().material.color = enemyColor;
         }
@@ -112,7 +101,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = new Color(0, 10, 10, 50);
         }
-        //GetComponent<Renderer>().material.color = enemyColor;
     }
 
     void GetNextWaypoint()
