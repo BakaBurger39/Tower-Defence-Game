@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 18
   speed: 20
-  startHealth: 200
+  startHealth: 100
   health: 100
   enemyValue: 20
   enemyMaterial: {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}

@@ -192,7 +192,7 @@ MonoBehaviour:
   lineRenderer: {fileID: 6222627819339831153}
   impactEffect: {fileID: 2103102396854830340}
   useSlow: 1
-  slowPercentage: 0.7
+  slowPercentage: 0.5
   enemyTag: Enemy
   partToRotate: {fileID: 8145737143260739395}
   turnSpeed: 10
