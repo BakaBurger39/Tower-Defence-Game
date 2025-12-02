@@ -7545,7 +7545,7 @@ MonoBehaviour:
   standardTurret:
     prefab: {fileID: 5105562607611827932, guid: f7815c583bd61b44b8347ee312f90557, type: 3}
     cost: 150
-    upgradedPrefab: {fileID: 5105562607611827932, guid: 810d264d04ffb2e4f98e83c8be8ad209, type: 3}
+    upgradedPrefab: {fileID: 5105562607611827932, guid: 5a73792e8f54c994d861d1cd3b1dd210, type: 3}
     upgradeCost: 250
   portalTurret:
     prefab: {fileID: 733584041352009336, guid: ac3e7ec277e828f47a423a20d0fc82a2, type: 3}
