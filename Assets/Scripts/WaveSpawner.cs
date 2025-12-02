@@ -5,7 +5,9 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Transform enemyPrefab;
+    public static int enemiesAlive = 0;
+
+    public Wave[] waves;
 
     public Transform spawnPoint;
 
@@ -16,12 +18,23 @@ public class WaveSpawner : MonoBehaviour
 
     private int waveNumber = 0;
 
+    private void Start()
+    {
+        enemiesAlive = 0;
+    }
+
     void Update()
     {
+        if (enemiesAlive > 0)
+        {
+            return;
+        }
+
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
 
         countdown -= Time.deltaTime;
@@ -31,26 +44,47 @@ public class WaveSpawner : MonoBehaviour
         waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
 
+    //WaveSpawner Class    
     IEnumerator SpawnWave()
     {
-        //if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) //Makes another wave of enemies spawn only when there is no enemies on screen
-        {
-            waveNumber++;
-            PlayerStats.Rounds++;
+        PlayerStats.Rounds++;
 
-            for (int i = 0; i < waveNumber; i++)
+        Wave wave = waves[waveNumber];
+        for (int z = 0; z < wave.enemies.Length; z++)
+        {
+            for (int i = 0; i < wave.enemies[z].count; i++)
             {
-                SpawnEnemy();
-                yield return new WaitForSeconds(0.5f); //cooldown before spawning enemy after spawning another one
+                SpawnEnemy(wave.enemies[z].enemy);
+                yield return new WaitForSeconds(1f / wave.spawnRate);
+            }
+            if (waveNumber == waves.Length)
+            {
+                Debug.Log("TODO - End Level");
+                this.enabled = false;
             }
         }
-        
+        waveNumber++;
+    }
+    //Wave Class
+    [System.Serializable]
+    public class Wave
+    {
+        public float spawnRate;
+        public WaveGroup[] enemies;
+        [System.Serializable]
+        public class WaveGroup
+        {
+            public GameObject enemy;
+            public int count;
+        }
 
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
 
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
     }
+
 }
