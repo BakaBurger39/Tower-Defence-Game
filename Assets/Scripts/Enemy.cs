@@ -169,7 +169,6 @@ public class Enemy : MonoBehaviour
         PlayerStats.Lives--;
         PlayerStats.Lives--;
         PlayerStats.Lives--;
-        PlayerStats.Lives--;
 
         WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
