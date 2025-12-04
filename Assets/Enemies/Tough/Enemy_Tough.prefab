@@ -458,7 +458,8 @@ MonoBehaviour:
   speed: 20
   startHealth: 500
   health: 100
-  enemyValue: 150
+  enemyValue: 125
+  isBoss: 0
   enemyMaterial: {fileID: 2100000, guid: 5163f7c0009525b458767f7150876623, type: 2}
   enemyColor: {r: 0.10980392, g: 0.44313726, b: 0.16078432, a: 0}
   isDead: 0

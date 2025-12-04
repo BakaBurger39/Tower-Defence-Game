@@ -10096,7 +10096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurret:
     prefab: {fileID: 5105562607611827932, guid: f7815c583bd61b44b8347ee312f90557, type: 3}
-    cost: 150
+    cost: 175
     upgradedPrefab: {fileID: 5105562607611827932, guid: 5a73792e8f54c994d861d1cd3b1dd210, type: 3}
     upgradeCost: 250
   portalTurret:
@@ -10688,7 +10688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $150
+  m_text: $175
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11494,7 +11494,7 @@ MonoBehaviour:
   wavesFinished: 0
   nextWaveButton: {fileID: 458523540}
   waveValue: 40
-  waveValueIncrease: 10
+  waveValueIncrease: 30
 --- !u!114 &1384923473
 MonoBehaviour:
   m_ObjectHideFlags: 0

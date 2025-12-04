@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 12
   speed: 20
-  startHealth: 3000
+  startHealth: 1000
   health: 100
   enemyValue: 500
   isBoss: 1

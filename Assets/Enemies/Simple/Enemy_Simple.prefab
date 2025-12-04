@@ -454,11 +454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472f077e3b21d44b9d114c066c26b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 18
+  startSpeed: 16
   speed: 20
   startHealth: 125
   health: 100
-  enemyValue: 20
+  enemyValue: 15
+  isBoss: 0
   enemyMaterial: {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}
   enemyColor: {r: 0.08235294, g: 0.16470589, b: 0.9254902, a: 0}
   isDead: 0
