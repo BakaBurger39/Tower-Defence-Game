@@ -34,6 +34,10 @@ public class Enemy : MonoBehaviour
 
     private Turret turret;
 
+    public Transform child;
+    public int rotateAmount;
+
+    [SerializeField] private RotateAmount rotateBy;
 
 
     private void Start()
@@ -93,6 +97,8 @@ public class Enemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
+            //rotateAmount = rotateBy.RotateBy;
+            child.transform.Rotate(0f, -90f, 0f, Space.Self);
             GetNextWaypoint();
         }
         
