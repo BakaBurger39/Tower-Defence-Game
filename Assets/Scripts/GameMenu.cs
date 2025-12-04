@@ -7,11 +7,13 @@ public class GameMenu : MonoBehaviour
 {
     public GameObject MenuScreen;
     public GameObject LevelSelectScreen;
+    public GameObject ControlsScreen;
     public GameObject ExitLevelScreenButton;
 
     private void Start()
     {
         LevelSelectScreen.SetActive(false);
+        ControlsScreen.SetActive(false);
     }
 
 
@@ -25,6 +27,7 @@ public class GameMenu : MonoBehaviour
     {
         LevelSelectScreen.SetActive(false);
         MenuScreen.SetActive(true);
+        ControlsScreen.SetActive(false);
     }
 
 
@@ -36,5 +39,11 @@ public class GameMenu : MonoBehaviour
     public void StartLevelTwo()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void Controls()
+    {
+        ControlsScreen.SetActive(true);
+        MenuScreen.SetActive(false);
     }
 }
