@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public int enemyValue = 25;
 
+    public bool isBoss = false;
+
     public Material enemyMaterial;
     public Color enemyColor;
 
@@ -109,8 +111,22 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
-            EndPath();
-            return;
+            if (isBoss == false)
+            {
+                EndPath();
+                return;
+            }
+            
+        }
+
+        if (wavepointIndex >= Waypoints.points.Length - 1)
+        {
+            if (isBoss == true)
+            {
+                SuperDeath();
+                return;
+            }
+
         }
 
         wavepointIndex++;
@@ -120,6 +136,35 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStats.Lives--;
+        WaveSpawner.enemiesAlive--;
+        Destroy(gameObject);
+
+    }
+
+    void SuperDeath()
+    {
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+        PlayerStats.Lives--;
+
         WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
     }

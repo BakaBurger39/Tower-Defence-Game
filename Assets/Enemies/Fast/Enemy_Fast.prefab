@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 7338457382486394628}
   - component: {fileID: 7872255268057807853}
   m_Layer: 0
-  m_Name: Enemy_Simple
+  m_Name: Enemy_Fast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,8 +359,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.189339, y: 1.4999988, z: 33.88233}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2471306056224629840}
   m_Father: {fileID: 0}
@@ -398,7 +398,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}
+  - {fileID: 2100000, guid: 4fb4800ba9d6f0e4f96d697ef70f6297, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -454,13 +454,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472f077e3b21d44b9d114c066c26b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 18
+  startSpeed: 35
   speed: 20
-  startHealth: 125
+  startHealth: 75
   health: 100
-  enemyValue: 20
-  enemyMaterial: {fileID: 2100000, guid: cc3e916643dd7a045a77fc1460cf1a43, type: 2}
-  enemyColor: {r: 0.08235294, g: 0.16470589, b: 0.9254902, a: 0}
+  enemyValue: 25
+  enemyMaterial: {fileID: 2100000, guid: 4fb4800ba9d6f0e4f96d697ef70f6297, type: 2}
+  enemyColor: {r: 0.87058824, g: 0.85490197, b: 0.22352941, a: 0}
   isDead: 0
   deathEffect: {fileID: 7960708562360108387, guid: dfb6606fa932a3e4b9eb0b2564116079, type: 3}
   healthBar: {fileID: 5655323570444030377}

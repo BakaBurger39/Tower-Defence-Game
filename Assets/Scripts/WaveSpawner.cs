@@ -21,6 +21,8 @@ public class WaveSpawner : MonoBehaviour
     public bool wavesFinished = false;
 
     public GameObject nextWaveButton;
+    public int waveValue;
+    public int waveValueIncrease;
 
     private void Start()
     {
@@ -62,6 +64,8 @@ public class WaveSpawner : MonoBehaviour
     public void StartNextWave()
     {
         StartCoroutine(SpawnWave());
+        waveValue += waveValueIncrease;
+        PlayerStats.Money += waveValue;
     }
 
     //WaveSpawner Class    
