@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
     public TurretBlueprint standardTurret;
     public TurretBlueprint portalTurret;
     public TurretBlueprint lazerTurret;
+    public TurretBlueprint cannonTurret;
 
     BuildManager buildManager;
 
@@ -30,6 +31,12 @@ public class Shop : MonoBehaviour
     {
         Debug.Log("Lazer Turret Selected");
         buildManager.SelectTurretToBuild(lazerTurret);
+    }
+
+    public void SelectCannonTurret()
+    {
+        Debug.Log("Cannon Turret Selected");
+        buildManager.SelectTurretToBuild(cannonTurret);
     }
 
 }

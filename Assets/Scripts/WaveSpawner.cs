@@ -12,36 +12,56 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
 
     public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    private float countdown = 0f;
 
     public TextMeshProUGUI waveCountdownText;
 
     private int waveNumber = 0;
 
+    public bool wavesFinished = false;
+
+    public GameObject nextWaveButton;
+
     private void Start()
     {
         enemiesAlive = 0;
+        nextWaveButton.SetActive(false);
+
     }
 
     void Update()
     {
         if (enemiesAlive > 0)
         {
+            nextWaveButton.SetActive(false);
+            countdown += Time.deltaTime;
+
+            countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+            waveCountdownText.text = string.Format("{0:00.00}", countdown);
             return;
+            
         }
 
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-            return;
-        }
+        //if (countdown <= 0f)
+        //{
+        //    StartCoroutine(SpawnWave());
+        //    countdown = timeBetweenWaves;
+        //    return;
+        //}
 
-        countdown -= Time.deltaTime;
+        nextWaveButton.SetActive(true);
 
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        //countdown += Time.deltaTime;
 
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+        //countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        //waveCountdownText.text = string.Format("{0:00.00}", countdown);
+    }
+    
+    public void StartNextWave()
+    {
+        StartCoroutine(SpawnWave());
     }
 
     //WaveSpawner Class    
@@ -57,11 +77,11 @@ public class WaveSpawner : MonoBehaviour
                 SpawnEnemy(wave.enemies[z].enemy);
                 yield return new WaitForSeconds(1f / wave.spawnRate);
             }
-            if (waveNumber == waves.Length)
-            {
-                Debug.Log("TODO - End Level");
-                this.enabled = false;
-            }
+            //if (waveNumber == waves.Length)
+            //{
+            //    Debug.Log("TODO - End Level");
+            //    //this.enabled = false;
+            //}
         }
         waveNumber++;
     }

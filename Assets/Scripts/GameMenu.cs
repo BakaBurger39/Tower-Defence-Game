@@ -35,6 +35,6 @@ public class GameMenu : MonoBehaviour
 
     public void StartLevelTwo()
     {
-        
+        SceneManager.LoadScene(2);
     }
 }

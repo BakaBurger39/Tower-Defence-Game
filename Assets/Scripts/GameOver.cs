@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
 
     void OnEnable()
     {
+        PlayerStats.Rounds -= 1;
         roundsText.text = PlayerStats.Rounds.ToString();
     }
 
@@ -20,5 +21,10 @@ public class GameOver : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(2);
     }
 }

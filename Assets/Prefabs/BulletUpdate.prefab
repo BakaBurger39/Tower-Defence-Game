@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 793533999151615547}
   - component: {fileID: 7896782883665335633}
   m_Layer: 0
-  m_Name: Bullet_Upgraded
+  m_Name: BulletUpdate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.99, y: 3.22, z: 43.354}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f614ff475eda51e4d8229900e10d6687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  damage: 50
-  explosionRadius: 0
-  impactEffect: {fileID: 6352467896593727735, guid: 5e57b5ce15f8cb5449874a05e989d92d, type: 3}
+  speed: 120
+  damage: 150
+  explosionRadius: 8
+  impactEffect: {fileID: 6675183223986863798, guid: 37c94d8f71ff45f4eb17d97e3b4cb818, type: 3}
   destroySelfActive: 1

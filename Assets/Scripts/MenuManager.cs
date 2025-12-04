@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -5,11 +6,18 @@ public class MenuManager : MonoBehaviour
 
     private bool gameEnded = false;
 
+    private bool gameWon = false;
+
     public GameObject gameOverUI;
+    public GameObject gameWonUI;
+
+    public int roundsToWin;
 
     private void Start()
     {
         Time.timeScale = 1; // Un-Freezes game at start
+        gameWon = false;
+
     }
 
     // Update is called once per frame
@@ -23,6 +31,11 @@ public class MenuManager : MonoBehaviour
             EndGame();
         }
 
+        if (PlayerStats.Rounds >= roundsToWin)
+        {
+            WinGame();
+        }
+
     }
 
     void EndGame()
@@ -33,6 +46,13 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 0; // Freezes game after losing
 
+    }
+
+    void WinGame()
+    {
+        gameWonUI.SetActive(true);
+
+        Time.timeScale = 0;
     }
 
 }

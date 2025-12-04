@@ -66,7 +66,7 @@ public class Turret : MonoBehaviour
             if (enemy != nearestEnemy)
             {
                 enemy.isSlowed = false;
-                Debug.Log("no longer slowed");
+                //Debug.Log("no longer slowed");
 
             }
 
@@ -86,7 +86,7 @@ public class Turret : MonoBehaviour
         }
         
                 
-        Debug.Log(targetEnemy == null);
+        //Debug.Log(targetEnemy == null);
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
