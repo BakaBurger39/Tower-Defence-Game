@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class GameMenu : MonoBehaviour
 {
@@ -64,4 +65,9 @@ public class GameMenu : MonoBehaviour
         MenuScreen.SetActive(false);
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+        EditorApplication.isPlaying = false;
+    }
 }

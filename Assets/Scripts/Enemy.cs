@@ -37,6 +37,9 @@ public class Enemy : MonoBehaviour
     public Transform child;
     public int rotateAmount;
 
+    public AudioSource source;
+    public AudioClip die;
+
     [SerializeField] private RotateAmount rotateBy;
 
 
@@ -61,6 +64,7 @@ public class Enemy : MonoBehaviour
             if (health <= 0)
             {
                 isDead = true;
+                source.PlayOneShot(die);
                 Die();
             }
         }
@@ -84,6 +88,7 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 3f);
 
         WaveSpawner.enemiesAlive--;
+
 
         Destroy(gameObject);
     }

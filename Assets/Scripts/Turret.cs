@@ -41,6 +41,11 @@ public class Turret : MonoBehaviour
 
     public Transform firePoint;
 
+    public AudioSource source;
+    public AudioClip Bullet;
+    public AudioClip Lazer;
+    public AudioClip LazerFire;
+
     Enemy nearestEnemy = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -160,6 +165,7 @@ public class Turret : MonoBehaviour
 
         if (useSlow == true)
         {
+            source.PlayOneShot(Lazer);
             targetEnemy.isSlowed = true;
             targetEnemy.Slow(slowPercentage);
             
@@ -167,6 +173,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
+            source.PlayOneShot(LazerFire);
             lazerMaterial.color = new Color(35, 5, 5, 0);
         }
 
@@ -191,6 +198,8 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Seek(target);
+
+        source.PlayOneShot(Bullet);
     }
 
     private void OnDrawGizmosSelected()

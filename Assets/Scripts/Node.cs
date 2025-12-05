@@ -18,6 +18,11 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColor;
 
+    public AudioSource source;
+    public AudioClip TurretPlaced;
+    public AudioClip TurretUpgraded;
+    public AudioClip TurretSold;
+
     BuildManager buildManager;
 
     private void Start()
@@ -69,6 +74,8 @@ public class Node : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
+        source.PlayOneShot(TurretPlaced);
+
         Debug.Log("Turret built");
     }
 
@@ -94,6 +101,8 @@ public class Node : MonoBehaviour
 
         isUpgraded = true;
 
+        source.PlayOneShot(TurretUpgraded);
+
         Debug.Log("Turret upgraded");
     }
 
@@ -107,6 +116,7 @@ public class Node : MonoBehaviour
         Destroy (turret);
         turretBlueprint = null;
         isUpgraded = false;
+        source.PlayOneShot(TurretSold);
     }
 
     void OnMouseEnter()
