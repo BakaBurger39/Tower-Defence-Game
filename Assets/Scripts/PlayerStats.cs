@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -10,6 +11,10 @@ public class PlayerStats : MonoBehaviour
 
     public static int Rounds;
 
+    public AudioSource source;
+    public AudioClip hurt;
+
+
     void Start()
     {
         Money = startMoney;
@@ -17,4 +22,5 @@ public class PlayerStats : MonoBehaviour
 
         Rounds = 0;
     }
+
 }

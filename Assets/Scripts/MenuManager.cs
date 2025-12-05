@@ -15,6 +15,11 @@ public class MenuManager : MonoBehaviour
 
     public GameObject talkingScreen;
 
+    public AudioSource source;
+    public AudioClip Win;
+    public AudioClip Lose;
+
+
     private void Start()
     {
         talkingScreen.SetActive(true);
@@ -44,6 +49,8 @@ public class MenuManager : MonoBehaviour
 
     void EndGame()
     {
+        source.PlayOneShot(Lose);
+
         gameEnded = true;
         
         gameOverUI.SetActive(true);
@@ -54,6 +61,8 @@ public class MenuManager : MonoBehaviour
 
     void WinGame()
     {
+        source.PlayOneShot(Win);
+
         gameWonUI.SetActive(true);
 
         Time.timeScale = 0;
