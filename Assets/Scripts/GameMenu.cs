@@ -9,6 +9,7 @@ public class GameMenu : MonoBehaviour
     public GameObject MenuScreen;
     public GameObject LevelSelectScreen;
     public GameObject ControlsScreen;
+    public GameObject CreditsScreen;
     public GameObject ExitLevelScreenButton;
 
     public AudioSource source;
@@ -18,6 +19,7 @@ public class GameMenu : MonoBehaviour
     {
         LevelSelectScreen.SetActive(false);
         ControlsScreen.SetActive(false);
+        CreditsScreen.SetActive(false);
     }
 
     public void ButtonPopSound()
@@ -43,6 +45,7 @@ public class GameMenu : MonoBehaviour
         LevelSelectScreen.SetActive(false);
         MenuScreen.SetActive(true);
         ControlsScreen.SetActive(false);
+        CreditsScreen.SetActive(false);
     }
 
 
@@ -69,5 +72,12 @@ public class GameMenu : MonoBehaviour
     {
         Application.Quit();
         EditorApplication.isPlaying = false;
+    }
+
+    public void Credits()
+    {
+        source.PlayOneShot(pop);
+        CreditsScreen.SetActive(true);
+        MenuScreen.SetActive(false);
     }
 }
