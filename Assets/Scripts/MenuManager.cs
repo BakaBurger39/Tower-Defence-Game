@@ -13,8 +13,12 @@ public class MenuManager : MonoBehaviour
 
     public int roundsToWin;
 
+    public GameObject talkingScreen;
+
     private void Start()
     {
+        talkingScreen.SetActive(true);
+
         Time.timeScale = 1; // Un-Freezes game at start
         gameWon = false;
 
@@ -54,5 +58,12 @@ public class MenuManager : MonoBehaviour
 
         Time.timeScale = 0;
     }
+
+
+    public void CloseText()
+    {
+        talkingScreen.SetActive(false);
+    }
+
 
 }

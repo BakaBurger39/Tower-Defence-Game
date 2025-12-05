@@ -8,7 +8,6 @@ public class GamePaused : MonoBehaviour
     public GameObject gamePausedUI;
     public GameObject pauseButton;
 
-
     public void Retry()
     {
         SceneManager.LoadScene(0);
@@ -33,4 +32,5 @@ public class GamePaused : MonoBehaviour
         gamePausedUI.SetActive(false);
         pauseButton.SetActive(true);
     }
+
 }
