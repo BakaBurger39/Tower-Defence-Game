@@ -18,6 +18,11 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void RetryLvl2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene(1);
