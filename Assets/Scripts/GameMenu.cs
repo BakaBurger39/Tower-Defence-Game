@@ -52,7 +52,7 @@ public class GameMenu : MonoBehaviour
     public void StartLevelOne()
     {
         source.PlayOneShot(pop);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void StartLevelTwo()

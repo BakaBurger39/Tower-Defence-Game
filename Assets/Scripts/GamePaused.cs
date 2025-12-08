@@ -10,7 +10,7 @@ public class GamePaused : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void RetryLvl2()
@@ -20,7 +20,7 @@ public class GamePaused : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Pause()

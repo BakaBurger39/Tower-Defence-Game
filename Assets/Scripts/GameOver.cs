@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void RetryLvl2()
@@ -25,7 +25,7 @@ public class GameOver : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void NextLevel()
